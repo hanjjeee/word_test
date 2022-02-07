@@ -24,7 +24,7 @@ public class MyFrame extends JFrame implements ActionListener
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	int word_num = 3;
+	static int word_num = 3;
 	
 	//영-한 or 한-영 pair 
 	String[][] word = new String[1000][2];
@@ -38,8 +38,8 @@ public class MyFrame extends JFrame implements ActionListener
 	JButton startButton = new JButton("시험시작"); 
 	JButton submitButton = new JButton("답안제출");
 	
-	JLabel label = new JLabel("** 영-한 또는 한-영 뜻을 입력 후 각각 save 해주세요..");
-	JLabel label2 = new JLabel("모든 단어의 save가 끝나고 시험 시작 버튼이 나타납니다. **");
+	JLabel label = new JLabel("** 영-한 또는 한-영 뜻을 입력 후 각각 save 해주세요 **");
+	JLabel label2 = new JLabel("** 모든 단어의 save가 끝나고 시험 시작 버튼이 나타납니다. **");
 	
 	JTextField[] word1_input = new JTextField[16];
 	JTextField word2_input[] = new JTextField[16];
@@ -50,8 +50,8 @@ public class MyFrame extends JFrame implements ActionListener
 		
 		super("단어 시험기");
 
-		label.setFont(new Font(null, Font.BOLD, 13));
-		label2.setFont(new Font(null, Font.BOLD, 13));
+		label.setFont(new Font(null, Font.BOLD, 25));
+		label2.setFont(new Font(null, Font.BOLD, 25));
 		
 		submitButton.addActionListener(this);
 		submitButton.setPreferredSize(new Dimension(300,100));
@@ -63,9 +63,9 @@ public class MyFrame extends JFrame implements ActionListener
 		startButton.setVisible(false);
 		
 		
-		panel.setBounds(100,100,700,700);
+		panel.setBounds(200,200,700,700);
 		
-		panel_label.add(label); panel_label.add(label2);
+		panel_label.add(label); panel_start.add(label2);
 		panel_start.add(startButton);
 		
 		
@@ -94,7 +94,7 @@ public class MyFrame extends JFrame implements ActionListener
 		add(panel_start,BorderLayout.SOUTH);
 		
 		
-		setBounds(100,100,700,700);
+		setBounds(200,200,700,700);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
@@ -176,7 +176,11 @@ public class MyFrame extends JFrame implements ActionListener
 			
 			//start 버튼 생성
 			if(index_i == word_num-1)
+			{
+				label2.setVisible(false);
 				startButton.setVisible(true);
+			}
+				
 		
 		}//end of if save
 		
@@ -237,9 +241,12 @@ public class MyFrame extends JFrame implements ActionListener
 				if(!word2_input[i].getText().contains(word[i][1]))
 				{
 					wrong_answer++; 
-					
 					word2_input[i].setBackground(Color.pink);
 					
+				}
+				else 
+				{
+					word2_input[i].setBackground(Color.CYAN);
 				}
 				
 			}
