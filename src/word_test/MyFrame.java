@@ -1,6 +1,7 @@
 package word_test;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -23,7 +24,7 @@ public class MyFrame extends JFrame implements ActionListener
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	int word_num = 15;
+	int word_num = 3;
 	
 	//영-한 or 한-영 pair 
 	String[][] word = new String[1000][2];
@@ -121,9 +122,9 @@ public class MyFrame extends JFrame implements ActionListener
 		
 		word[random_index1][0] = word[random_index2][0];
 		word[random_index1][1] = word[random_index2][1];
-		
+
 		word[random_index2][0] = tmp_1[0];
-		word[random_index2][1] = tmp_1[0];
+		word[random_index2][1] = tmp_1[1];
 		
 		}//end of for 
 		
@@ -235,7 +236,10 @@ public class MyFrame extends JFrame implements ActionListener
 				//틀린 답안인 경우 
 				if(!word2_input[i].getText().contains(word[i][1]))
 				{
-					wrong_answer++;
+					wrong_answer++; 
+					
+					word2_input[i].setBackground(Color.pink);
+					
 				}
 				
 			}
