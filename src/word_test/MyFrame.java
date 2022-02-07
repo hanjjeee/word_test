@@ -35,10 +35,10 @@ public class MyFrame extends JFrame implements ActionListener
 	JPanel panel_start = new JPanel();
 	
 	JButton saveButton[] = new JButton[15];
-	JButton startButton = new JButton("시험시작"); 
-	JButton submitButton = new JButton("답안제출");
+	JButton startButton = new JButton("시험 시작"); 
+	JButton submitButton = new JButton("답안 제출");
 	
-	JLabel label = new JLabel("** 영-한 또는 한-영 뜻을 입력 후 각각 save 해주세요 **");
+	JLabel label = new JLabel("** 영-한 또는 한-영 뜻을 각각 입력후 모두 save 해주세요 **");
 	JLabel label2 = new JLabel("** 모든 단어의 save가 끝나고 시험 시작 버튼이 나타납니다. **");
 	
 	JTextField[] word1_input = new JTextField[16];
@@ -55,11 +55,11 @@ public class MyFrame extends JFrame implements ActionListener
 		
 		submitButton.addActionListener(this);
 		submitButton.setPreferredSize(new Dimension(300,100));
-		submitButton.setFont(new Font(null, Font.BOLD, 20));
+		submitButton.setFont(new Font(null, Font.BOLD, 30));
 		
 		startButton.addActionListener(this);
 		startButton.setPreferredSize(new Dimension(300,100));
-		startButton.setFont(new Font(null, Font.BOLD, 20));
+		startButton.setFont(new Font(null, Font.BOLD, 30));
 		startButton.setVisible(false);
 		
 		
@@ -251,17 +251,20 @@ public class MyFrame extends JFrame implements ActionListener
 				
 			}
 			
-			per=( (word_num-wrong_answer)/sum )*100;
+			per = ( (word_num-wrong_answer)/sum )*100;
 			
 			
 			JLabel result = new JLabel("정답비율: "+ per+"%");
 			JLabel result2 = new JLabel(" *같은 답이 아니라도 정답을 포함하면 정답으로 채점됩니다.");
-		
-			result.setFont(new Font(null, Font.BOLD, 20));
-			result2.setFont(new Font(null, Font.BOLD, 10));
+			JLabel result3 = new JLabel(" 빨간색:틀림 , 파란색:정답");
+			
+			result.setFont(new Font(null, Font.BOLD, 25));
+			result2.setFont(new Font(null, Font.BOLD, 13));
+			result3.setFont(new Font(null, Font.BOLD, 13)); 
 			
 			panel_start.add(result);
 			panel_start.add(result2);
+			panel_start.add(result3);
 			
 		}
 		
