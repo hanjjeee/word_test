@@ -68,6 +68,14 @@ public class MyFrame extends JFrame implements ActionListener
 		panel_label.add(label); panel_start.add(label2);
 		panel_start.add(startButton);
 		
+		//입력 예시 주기
+		JLabel ex_label = new JLabel(" 예시: apple");
+		JLabel ex_label2 = new JLabel("사과 ");
+		
+		panel.add(ex_label);
+		panel.add(ex_label2); 
+		ex_label.setPreferredSize(new Dimension(300,20));
+		ex_label2.setPreferredSize(new Dimension(300,20));
 		
 		//단어입력칸 word_num 만큼 생성
 		for(int i=0;i<word_num;i++)
@@ -84,7 +92,7 @@ public class MyFrame extends JFrame implements ActionListener
 				
 				word1_input[i].setBounds(100,50*i,300,30);
 				word2_input[i].setBounds(500,50*i,300,30);
-				saveButton[i].setBounds(810,50*i,100,30);
+				saveButton[i].setBounds(810,50*(i),100,30);
 				
 		}
 		
@@ -242,6 +250,7 @@ public class MyFrame extends JFrame implements ActionListener
 				{
 					wrong_answer++; 
 					word2_input[i].setBackground(Color.pink);
+					word2_input[i].setText(word2_input[i].getText()+"  *정답:"+word[i][1]);
 					
 				}
 				else 
@@ -252,9 +261,10 @@ public class MyFrame extends JFrame implements ActionListener
 			}
 			
 			per = ( (word_num-wrong_answer)/sum )*100;
+			String per_s = String.format("%.2f",per);
 			
 			
-			JLabel result = new JLabel("정답비율: "+ per+"%");
+			JLabel result = new JLabel("정답비율: "+ per_s +"%");
 			JLabel result2 = new JLabel(" *같은 답이 아니라도 정답을 포함하면 정답으로 채점됩니다.");
 			JLabel result3 = new JLabel(" 빨간색:틀림 , 파란색:정답");
 			
