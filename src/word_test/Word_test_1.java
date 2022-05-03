@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 @SuppressWarnings("serial")
-public class word_test_1 extends JFrame implements ActionListener{
+public class Word_test_1 extends JFrame implements ActionListener{
 	
 	JLabel label;
 	
@@ -19,7 +19,7 @@ public class word_test_1 extends JFrame implements ActionListener{
 	JTextField count_text;
 	JButton cntButton;
 	
-	public word_test_1() {
+	public Word_test_1() {
 		
 		super("셀프 단어 시험 프로그램 (by hanjjeee)");
 		
@@ -51,7 +51,7 @@ public class word_test_1 extends JFrame implements ActionListener{
 	
 	public static void main(String[] args)
 	{
-		new word_test_1();
+		new Word_test_1();
 	}
 
 	@Override
